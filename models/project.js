@@ -8,18 +8,12 @@ const findOne = async id => {
     return db.promise().query('SELECT * FROM project WHERE id = ?', [id]);
 };
 
-const create = async ({
-    title,
-    language,
-    description,
-    site_url,
-    gitHub_url,
-}) => {
+const create = async ({ title, language, description, site, gitHub }) => {
     return db
         .promise()
         .query(
-            'INSERT INTO project (title,language, description, site_url, gitHub_url) VALUES (?, ?, ?, ?, ?)',
-            [title, language, description, site_url, gitHub_url],
+            'INSERT INTO project (title,language, description, site, gitHub) VALUES (?, ?, ?, ?, ?)',
+            [title, language, description, site, gitHub],
         );
 };
 

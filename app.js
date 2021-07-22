@@ -1,10 +1,12 @@
 const connection = require('./db-config');
 const express = require('express');
 const app = express();
-
-require('./routes')(app);
+const cors = require('cors');
 
 app.use(express.json());
+app.use(cors());
+
+require('./routes')(app);
 
 const port = process.env.PORT || 3030;
 
